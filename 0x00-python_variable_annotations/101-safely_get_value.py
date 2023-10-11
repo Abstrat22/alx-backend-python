@@ -4,7 +4,7 @@
 from re import T
 from typing import Any, Mapping, Union, TypeVar
 
-# Create a new type T
+# Create a new type 'T'
 T = TypeVar('T')
 
 
