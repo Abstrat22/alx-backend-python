@@ -1,19 +1,18 @@
 #!/usr/bin/env python3
 
-from typing import Tuple, Any
+from typing import Tuple, List
 
 
-def zoom_array(lst: Tuple, factor: int = 2) -> Tuple:
-    """ Create a new tuple called zoomed_in using a list comprehension"""
-    zoomed_in: Tuple = tuple(
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """ Create and return a new list called zoomed_in using a list comprehension"""
+    zoomed_in: List = [
         item for item in lst
         for i in range(factor)
-    )
-    # Return the zoomed_in tuple
+    ]
+
     return zoomed_in
 
 
-# Create a tuple called array with some initial values
 array: Tuple = (12, 72, 91)
 
 # Call the zoom_array function with the default factor (2)
