@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """safely_get_value module"""
 
 from typing import Any, Dict
