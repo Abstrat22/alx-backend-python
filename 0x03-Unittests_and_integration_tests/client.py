@@ -7,6 +7,7 @@ A GitHub organization client that interacts with the GitHub API to retrieve orga
 from typing import List, Dict
 from utils import get_json, access_nested_map, memoize
 
+
 class GithubOrgClient:
     """
     A GitHub organization client.
@@ -92,4 +93,3 @@ class GithubOrgClient:
         except KeyError:
             return False
         return has_license
-

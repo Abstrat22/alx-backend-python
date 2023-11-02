@@ -12,6 +12,7 @@ from requests import HTTPError
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """Tests the `GithubOrgClient` class."""
 
@@ -31,7 +32,8 @@ class TestGithubOrgClient(unittest.TestCase):
 
     def test_public_repos_url(self) -> None:
         """Tests the `_public_repos_url` property."""
-        with patch("client.GithubOrgClient.org", new_callable=PropertyMock) as mock_org:
+        with patch("client.GithubOrgClient.org",
+                   new_callable=PropertyMock) as mock_org:
             mock_org.return_value = {
                 'repos_url': "https://api.github.com/users/google/repos",
             }
@@ -45,7 +47,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """Tests the `public_repos` method."""
         test_payload = TEST_PAYLOAD[0][1]
         mock_get_json.return_value = test_payload["repos"]
-        with patch("client.GithubOrgClient._public_repos_url", new_callable=PropertyMock) as mock_public_repos_url:
+        with patch("client.GithubOrgClient._public_repos_url",
+                   new_callable=PropertyMock) as mock_public_repos_url:
             mock_public_repos_url.return_value = test_payload["repos_url"]
             self.assertEqual(
                 GithubOrgClient("google").public_repos(),
@@ -111,4 +114,3 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def tearDownClass(cls) -> None:
         """Removes the class fixtures after running all tests."""
         cls.get_patcher.stop()
-
